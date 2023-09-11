@@ -1,9 +1,14 @@
-#!/bin/sh -l
+#!/bin/bash -l
 
-set -e
+set -ex
+args=()
 
 if [ -n "$INPUT_CONFIG" ]; then
-    octocov --config "$INPUT_CONFIG"
-else
-    octocov
+    args+=(--config "$INPUT_CONFIG")
 fi
+
+if [ -n "$INPUT_REPORT" ]; then
+    args+=(--report "$INPUT_REPORT")
+fi
+
+octocov "${args[@]}"

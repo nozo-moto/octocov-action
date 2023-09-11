@@ -11,6 +11,9 @@ inputs:
   config:
     description: config path
     required: false
+  report:
+    description: report path
+    required: false
 runs:
   using: 'docker'
   image: 'Dockerfile'
